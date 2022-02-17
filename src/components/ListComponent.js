@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import { url as endpoint } from "../helpers/url";
 import MercadoCard from "./MercadoCard";
-
+import "../styles/listC.css";
 const ListComponent = () => {
   const [product, setProduct] = useState([]);
 
@@ -20,12 +20,10 @@ const ListComponent = () => {
   return (
     <div>
       <Container>
-        <Row lg={4}>
+        <Row className="row-card" lg={4}>
           {product.map((pr) => (
-            <MercadoCard key={pr.id} 
-            {...pr}
-            />
-         ))}
+            <MercadoCard key={pr.id} {...pr} />
+          ))}
         </Row>
       </Container>
     </div>
