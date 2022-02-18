@@ -6,14 +6,13 @@ const MercadoCard = ({ id, attributes }) => {
   return (
     <div className="containerCard">
       <Card className="card" style={{ width: "14rem", height: "22rem" }}>
-        
         <Link to={`/product/${id}`}>
-        <Card.Img className="card-img" src={attributes.image_large_url} />
+          <Card.Img className="card-img" src={attributes.image_large_url} />
         </Link>
-        
+
         <Card.Body>
           <Card.Title className="text-center">{attributes.name}</Card.Title>
-         
+
           <Card.Text className="text-center">
             <span>$ </span>
             {attributes.price}
@@ -28,4 +27,3 @@ const MercadoCard = ({ id, attributes }) => {
 };
 
 export default MercadoCard;
-

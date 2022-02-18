@@ -20,7 +20,7 @@ const ListComponent = () => {
   return (
     <div>
       <Container>
-        <Row className="row-card" lg={4}>
+        <Row style={{boxShadow:"none"}} className="row-card" lg={4}>
           {product.map((pr) => (
             <MercadoCard key={pr.id} {...pr} />
           ))}
