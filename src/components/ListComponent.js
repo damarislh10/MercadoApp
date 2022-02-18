@@ -13,14 +13,12 @@ const ListComponent = () => {
   const getData = async () => {
     const resp = await fetch(endpoint);
     const { data } = await resp.json();
-    console.log(data);
     setProduct(data);
   };
-  console.log(product);
   return (
     <div>
       <Container>
-        <Row style={{boxShadow:"none"}} className="row-card" lg={4}>
+        <Row style={{ boxShadow: "none" }} className="row-card" lg={4}>
           {product.map((pr) => (
             <MercadoCard key={pr.id} {...pr} />
           ))}

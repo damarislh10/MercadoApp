@@ -39,10 +39,10 @@ const MercadoScreen = () => {
           </Col>
           <Col sm={6}>
             <div className="contain-detail">
-              <h3>{nameP}</h3>
+              <h3 className="fw-bold">{nameP}</h3>
               <label>{pumP}</label>
               <div>
-                <label>$ {priceP}</label>
+                <label className="fw-bold fs-4">$ {priceP}</label>
               </div>
             </div>
           </Col>
