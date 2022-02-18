@@ -43,11 +43,17 @@ const NavBar = () => {
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              <AiOutlineShoppingCart/>
-
-              <label className="text-header text-light fw-bold">
-                {items.item}
-              </label>
+              <div>
+                <img
+                  className="img-car"
+                  style={{ width: "30px" }}
+                  src="https://res.cloudinary.com/df90q7vvj/image/upload/v1645154462/pruebaTecnicaMerqueo/icons8-carrito-de-compras-48_yzapu5.png"
+                  alt="img-car"
+                />
+                <label className="text-header text-light fw-bold label-item">
+                  {items.item}
+                </label>
+              </div>
               <span className="text-header text-light fw-bold"> Total: </span>
               <label className="text-header text-light fw-bold">
                 <span>$</span>

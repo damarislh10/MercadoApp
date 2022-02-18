@@ -6,3 +6,17 @@
     color:#fff;
     font-size:20px;
 }
+.mg-car{
+    z-index: 1;
+}
+.label-item{
+    border:2px solid #fff;
+    border-radius:100%;
+    text-align: center;
+    padding:0 0.5%;
+    top:12px;
+    font-size: 15px;
+    position: absolute;
+    z-index: 10;
+    background-color: #D0006F;
+}
