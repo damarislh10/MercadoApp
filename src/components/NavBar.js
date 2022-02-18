@@ -21,6 +21,7 @@ const NavBar = () => {
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
               <AiOutlineShoppingCart />
+              
               <label className="text-header text-light">3</label>
               <span className="text-header text-light">Total:</span>
               <label className="text-header text-light">$7655</label>
