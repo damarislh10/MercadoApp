@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { AiOutlineShoppingCart } from "react-icons/ai";
 
 import "../styles/navBar.css";
 const NavBar = () => {
