@@ -53,10 +53,10 @@ const NavBar = () => {
                   {items.item}
                 </label>
               </div>
-              <span className="text-header text-light fw-bold"> Total: </span>
+              <span style={{fontSize:"15px"}} className="text-header text-light fw-bold"> Total: </span>
               <label className="text-header text-light fw-bold">
-                <span>$</span>
-                {items.priceS}
+                <span style={{fontSize:"15px"}}>$</span>
+                <span style={{fontSize:"15px"}}>{items.priceS}</span>
               </label>
             </Navbar.Text>
           </Navbar.Collapse>

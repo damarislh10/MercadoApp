@@ -10,11 +10,10 @@
     margin-top: 12%;
 }
 .containerCard{
-    margin: 5% 1%;
+    margin: 5% 0%;
     display: flex;
-    margin:auto;
     margin-right:0;
-
+    justify-content: center ;
 }
 
 .container-item{
