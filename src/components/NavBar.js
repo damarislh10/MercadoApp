@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { UserContext } from "./userContext";
 
 import "../styles/navBar.css";
 const NavBar = () => {
@@ -9,6 +10,9 @@ const NavBar = () => {
     priceS: 0,
   });
 
+    const {itemCar,setItemCar} = useContext(UserContext);
+
+console.log(itemCar.countItem)
   useEffect(() => {
     getItemCar();
   }, []);
@@ -33,7 +37,7 @@ const NavBar = () => {
         <Container className="py-2">
           <Navbar.Brand
             as={Link}
-            to="/"
+            to="/"  
             className="text-header text-light fs-3"
             style={{ fontStyle: "italic" }}
           >
@@ -50,13 +54,13 @@ const NavBar = () => {
                   alt="img-car"
                 />
                 <label className="text-header text-light fw-bold label-item">
-                  {items.item}
+                  {itemCar.countItem}
                 </label>
               </div>
               <span style={{fontSize:"15px"}} className="text-header text-light fw-bold"> Total: </span>
               <label className="text-header text-light fw-bold">
                 <span style={{fontSize:"15px"}}>$</span>
-                <span style={{fontSize:"15px"}}>{items.priceS}</span>
+                <span style={{fontSize:"15px"}}></span>
               </label>
             </Navbar.Text>
           </Navbar.Collapse>

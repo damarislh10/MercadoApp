@@ -2,15 +2,13 @@ import { useContext, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useCounter from "../hooks/useCounter";
-import { UserContext } from "./userContext";
+
 import "../styles/card.css";
 
 const MercadoCard = ({ id, attributes }) => {
   const { counter, handleAdd, handleSubstract } = useCounter();
   const [show, setShow] = useState(1);
 
-  const {itemCar,setItemCar} = useContext(UserContext);
-  console.log(itemCar)
 
 
   const comprar = () => {
