@@ -5,13 +5,16 @@ const useCounter = (value = 0) => {
   const [counter, setCounter] = useState(value);
     const {itemCar,setItemCar} = useContext(UserContext);
 
-
+    let priceProduct = JSON.parse(localStorage.getItem("priceProduct"));
+    priceProduct = priceProduct !== null ? priceProduct : [];
+    
   const handleAdd = () => {
-    setCounter(counter + 1);
     setItemCar({
-      ...itemCar,
-      countItem:counter + 1
+      price:priceProduct * counter,
+      countItem:counter + 1,
     })
+        setCounter(counter + 1);
+
     localStorage.setItem("itemCar",  JSON.stringify(itemCar));
   };
 
@@ -19,8 +22,8 @@ const useCounter = (value = 0) => {
     if (counter > 0) {
       setCounter(counter - 1);
           setItemCar({
-      ...itemCar,
-      countItem:counter -1
+          countItem:counter -1,
+             price:priceProduct * counter
     })
       localStorage.setItem("itemCar", JSON.stringify(itemCar));
     }

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useCounter from "../hooks/useCounter";
@@ -27,7 +27,7 @@ const MercadoCard = ({ id, attributes }) => {
           <Card.Text className="text-center">
             <span className="fw-bold">
               <span>$</span>{attributes.price}
-              {localStorage.setItem("priceProduct", attributes.price)}{" "}
+              {localStorage.setItem("priceProduct", attributes.price)}
             </span>
           </Card.Text>
           {show === 1 && counter === 0 ? (

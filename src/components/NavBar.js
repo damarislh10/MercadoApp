@@ -5,31 +5,27 @@ import { UserContext } from "./userContext";
 
 import "../styles/navBar.css";
 const NavBar = () => {
-  const [items, setItems] = useState({
-    item: 0,
-    priceS: 0,
-  });
 
     const {itemCar,setItemCar} = useContext(UserContext);
+    const [totalCarrito, setTotalcar] = useState({
+      items:0,
+      totalPrice:0
+    });
+
 
 console.log(itemCar.countItem)
   useEffect(() => {
     getItemCar();
-  }, []);
+  }, [itemCar]);
+
   const getItemCar = () => {
-    let itemCar = JSON.parse(localStorage.getItem("itemCar"));
-    itemCar = itemCar !== null ? itemCar : [];
-
-    let priceProduct = JSON.parse(localStorage.getItem("priceProduct"));
-    priceProduct = priceProduct !== null ? priceProduct : [];
-
-    let totalP = itemCar * priceProduct;
-    setItems({
-      priceS: totalP,
-      item: itemCar,
-    });
-    console.log(items.item, items.priceS);
+       let totalCar = JSON.parse(localStorage.getItem("total"));
+       setTotalcar({
+         items:totalCar.countItem,
+         totalPrice:totalCar.price
+       })
   };
+      console.log(totalCarrito)
 
   return (
     <div>
@@ -54,13 +50,15 @@ console.log(itemCar.countItem)
                   alt="img-car"
                 />
                 <label className="text-header text-light fw-bold label-item">
-                  {itemCar.countItem}
+                  {totalCarrito.items}
                 </label>
               </div>
               <span style={{fontSize:"15px"}} className="text-header text-light fw-bold"> Total: </span>
               <label className="text-header text-light fw-bold">
                 <span style={{fontSize:"15px"}}>$</span>
-                <span style={{fontSize:"15px"}}></span>
+                <span style={{fontSize:"15px"}}> 
+                {itemCar.price}
+                { localStorage.setItem("total",  JSON.stringify(itemCar))}</span>
               </label>
             </Navbar.Text>
           </Navbar.Collapse>
