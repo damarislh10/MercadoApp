@@ -1,30 +1,30 @@
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
 import { UserContext } from "../components/userContext";
 
 const useCounter = (value = 0) => {
   const [counter, setCounter] = useState(value);
-    const {itemCar,setItemCar} = useContext(UserContext);
+  const { itemCar, setItemCar } = useContext(UserContext);
 
-    let priceProduct = JSON.parse(localStorage.getItem("priceProduct"));
-    priceProduct = priceProduct !== null ? priceProduct : [];
-    
+  let priceProduct = JSON.parse(localStorage.getItem("priceProduct"));
+  priceProduct = priceProduct !== null ? priceProduct : [];
+
   const handleAdd = () => {
     setItemCar({
-      price:priceProduct * counter,
-      countItem:counter + 1,
-    })
-        setCounter(counter + 1);
+      price: priceProduct * counter,
+      countItem: counter + 1,
+    });
+    setCounter(counter + 1);
 
-    localStorage.setItem("itemCar",  JSON.stringify(itemCar));
+    localStorage.setItem("itemCar", JSON.stringify(itemCar));
   };
 
   const handleSubstract = () => {
     if (counter > 0) {
       setCounter(counter - 1);
-          setItemCar({
-          countItem:counter -1,
-             price:priceProduct * counter
-    })
+      setItemCar({
+        countItem: counter - 1,
+        price: priceProduct * counter,
+      });
       localStorage.setItem("itemCar", JSON.stringify(itemCar));
     }
   };

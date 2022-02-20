@@ -1,31 +1,29 @@
-import React, { useEffect, useState,useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "./userContext";
-
 import "../styles/navBar.css";
+
+
 const NavBar = () => {
+  const { itemCar, setItemCar } = useContext(UserContext);
+  const [totalCarrito, setTotalcar] = useState({
+    items: 0,
+    totalPrice: 0,
+  });
 
-    const {itemCar,setItemCar} = useContext(UserContext);
-    const [totalCarrito, setTotalcar] = useState({
-      items:0,
-      totalPrice:0
-    });
-
-
-console.log(itemCar.countItem)
   useEffect(() => {
     getItemCar();
   }, [itemCar]);
 
   const getItemCar = () => {
-       let totalCar = JSON.parse(localStorage.getItem("total"));
-       setTotalcar({
-         items:totalCar.countItem,
-         totalPrice:totalCar.price
-       })
+    let totalCar = JSON.parse(localStorage.getItem("total"));
+    setTotalcar({
+      items: totalCar.countItem,
+      totalPrice: totalCar.price,
+    });
   };
-      console.log(totalCarrito)
+  console.log(totalCarrito);
 
   return (
     <div>
@@ -33,7 +31,7 @@ console.log(itemCar.countItem)
         <Container className="py-2">
           <Navbar.Brand
             as={Link}
-            to="/"  
+            to="/"
             className="text-header text-light fs-3"
             style={{ fontStyle: "italic" }}
           >
@@ -53,12 +51,19 @@ console.log(itemCar.countItem)
                   {totalCarrito.items}
                 </label>
               </div>
-              <span style={{fontSize:"15px"}} className="text-header text-light fw-bold"> Total: </span>
+              <span
+                style={{ fontSize: "15px" }}
+                className="text-header text-light fw-bold"
+              >
+                {" "}
+                Total:{" "}
+              </span>
               <label className="text-header text-light fw-bold">
-                <span style={{fontSize:"15px"}}>$</span>
-                <span style={{fontSize:"15px"}}> 
-                {itemCar.price}
-                { localStorage.setItem("total",  JSON.stringify(itemCar))}</span>
+                <span style={{ fontSize: "15px" }}>$</span>
+                <span style={{ fontSize: "15px" }}>
+                  {itemCar.price}
+                  {localStorage.setItem("total", JSON.stringify(itemCar))}
+                </span>
               </label>
             </Navbar.Text>
           </Navbar.Collapse>
