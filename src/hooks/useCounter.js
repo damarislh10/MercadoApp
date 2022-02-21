@@ -10,7 +10,7 @@ const useCounter = (value = 0) => {
 
   const handleAdd = () => {
     setItemCar({
-      price: priceProduct * counter,
+      price: priceProduct,
       countItem: counter + 1,
     });
     setCounter(counter + 1);
@@ -22,8 +22,8 @@ const useCounter = (value = 0) => {
     if (counter > 0) {
       setCounter(counter - 1);
       setItemCar({
+        price: priceProduct,
         countItem: counter - 1,
-        price: priceProduct * counter,
       });
       localStorage.setItem("itemCar", JSON.stringify(itemCar));
     }

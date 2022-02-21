@@ -61,7 +61,7 @@ const NavBar = () => {
               <label className="text-header text-light fw-bold">
                 <span style={{ fontSize: "15px" }}>$</span>
                 <span style={{ fontSize: "15px" }}>
-                  {itemCar.price}
+                  {itemCar.price * totalCarrito.items}
                   {localStorage.setItem("total", JSON.stringify(itemCar))}
                 </span>
               </label>
