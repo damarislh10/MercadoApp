@@ -15,6 +15,8 @@ const MercadoCard = ({ id, attributes }) => {
   const comprar = () => {
     setShow(0);
   };
+
+  
   return (
     <div className="containerCard">
       <Card className="card" style={{ width: "14rem", height: "22rem" }}>

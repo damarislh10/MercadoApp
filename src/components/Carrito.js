@@ -17,14 +17,13 @@ const Carrito = () => {
   };
 
   const deleteProduct = (id) => {
-    const local = JSON.parse(localStorage.getItem("carrito"));
+    const local = getCarrito();
 
     local.forEach((element, index) => {
       if (Number(element.idS) === Number(id)) {
         local.splice(index, 1); // elimine
         localStorage.setItem("carrito", JSON.stringify(local));
       }
-      JSON.parse(localStorage.getItem("carrito"));
     });
     // eslint-disable-next-line no-restricted-globals
     location.reload();
