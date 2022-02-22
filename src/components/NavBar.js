@@ -25,13 +25,13 @@ const NavBar = () => {
       totalPrice: totalprice,
     });
   };
-  let prueba = itemCar.price * totalCarrito.items;
-  prueba = prueba.toLocaleString("en-US");
+  let totalAll = itemCar.price * totalCarrito.items;
+  totalAll = totalAll.toLocaleString("en-US");
   let totalItems = totalCarrito.items;
 
   const Allcar = {
     items: totalItems,
-    precioTotal: prueba,
+    precioTotal: totalAll,
   };
   let totalcar = JSON.parse(localStorage.getItem("totalCar"));
   totalcar = totalcar !== null ? totalcar : [];
