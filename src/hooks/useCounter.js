@@ -25,6 +25,7 @@ const useCounter = (value = 0) => {
         price: priceProduct,
         countItem: counter - 1,
       });
+      
       localStorage.setItem("itemCar", JSON.stringify(itemCar));
     }
   };

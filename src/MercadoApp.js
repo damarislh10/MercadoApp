@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Main from "./components/Main";
 import { UserContext } from "./components/userContext";
 import { AppRouter } from "./routes/AppRouter";
 

@@ -2,14 +2,11 @@ import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useCounter from "../hooks/useCounter";
-
 import "../styles/card.css";
 
 const MercadoCard = ({ id, attributes }) => {
   const { counter, handleAdd, handleSubstract } = useCounter();
   const [show, setShow] = useState(1);
-
-
 
   const comprar = () => {
     setShow(0);
@@ -26,11 +23,12 @@ const MercadoCard = ({ id, attributes }) => {
 
           <Card.Text className="text-center">
             <span className="fw-bold">
-              <span>$</span>{attributes.price}
+              <span>$</span>
+              {attributes.price}
               {localStorage.setItem("priceProduct", attributes.price)}
             </span>
           </Card.Text>
-          {show === 1 && counter === 0 ? (
+          {show === 1 ? (
             <Button className="w-100" onClick={comprar}>
               Comprar
             </Button>
@@ -45,7 +43,18 @@ const MercadoCard = ({ id, attributes }) => {
               <label className="counterItem">{counter}</label>
               <button
                 className="btn-item btn-add btn btn-primary"
-                onClick={handleAdd}
+                onClick={() => {
+                  handleAdd();
+                  let products = [];
+                  const key = JSON.parse(localStorage.getItem("carrito"));
+                  if (key !== null && counter === 0) {
+                    key.push(attributes);
+                    localStorage.setItem("carrito", JSON.stringify(key));
+                  } else if (counter === 0) {
+                    products.push(attributes);
+                    localStorage.setItem("carrito", JSON.stringify(products));
+                  }
+                }}
               >
                 +
               </button>

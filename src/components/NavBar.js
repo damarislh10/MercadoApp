@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Container, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button, Container, Navbar } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "./userContext";
 import "../styles/navBar.css";
 
-
 const NavBar = () => {
   const { itemCar, setItemCar } = useContext(UserContext);
+  const navigate = useNavigate();
+
   const [totalCarrito, setTotalcar] = useState({
     items: 0,
     totalPrice: 0,
@@ -18,12 +19,12 @@ const NavBar = () => {
 
   const getItemCar = () => {
     let totalCar = JSON.parse(localStorage.getItem("total"));
+    let totalprice = JSON.parse(localStorage.getItem("totalprice"));
     setTotalcar({
       items: totalCar.countItem,
-      totalPrice: totalCar.price,
+      totalPrice: totalprice,
     });
   };
-  console.log(totalCarrito);
 
   return (
     <div>
@@ -41,28 +42,34 @@ const NavBar = () => {
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
               <div>
-                <img
-                  className="img-car"
-                  style={{ width: "30px" }}
-                  src="https://res.cloudinary.com/df90q7vvj/image/upload/v1645154462/pruebaTecnicaMerqueo/icons8-carrito-de-compras-48_yzapu5.png"
-                  alt="img-car"
-                />
-                <label className="text-header text-light fw-bold label-item">
-                  {totalCarrito.items}
-                </label>
+                <button className="btnCar"
+                  onClick={() => {
+                    navigate("/product/car");
+                  }}
+                >
+                  <img
+                    className="img-car"
+                    style={{ width: "30px" }}
+                    src="https://res.cloudinary.com/df90q7vvj/image/upload/v1645154462/pruebaTecnicaMerqueo/icons8-carrito-de-compras-48_yzapu5.png"
+                    alt="img-car"
+                  />
+                  <label className="text-header text-light fw-bold label-item">
+                    {totalCarrito.items}
+                  </label>
+                </button>
               </div>
               <span
                 style={{ fontSize: "15px" }}
                 className="text-header text-light fw-bold"
               >
-                {" "}
-                Total:{" "}
+                Total:
               </span>
               <label className="text-header text-light fw-bold">
                 <span style={{ fontSize: "15px" }}>$</span>
                 <span style={{ fontSize: "15px" }}>
                   {itemCar.price * totalCarrito.items}
                   {localStorage.setItem("total", JSON.stringify(itemCar))}
+                  {/* {localStorage.setItem("totalprice", JSON.stringify(itemCar.price * totalCarrito.items))} */}
                 </span>
               </label>
             </Navbar.Text>
