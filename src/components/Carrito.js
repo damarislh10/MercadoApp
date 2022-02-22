@@ -38,6 +38,7 @@ const Carrito = () => {
                   <label className="fw-bold fs-4">
                     Precio normal: $ {pr.price}
                   </label>
+                  <Button variant="danger">Eliminar</Button>
                 </div>
               </div>
             </Col>

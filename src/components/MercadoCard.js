@@ -24,7 +24,7 @@ const MercadoCard = ({ id, attributes }) => {
           <Card.Text className="text-center">
             <span className="fw-bold">
               <span>$</span>
-              {attributes.price}
+              {new Intl.NumberFormat("es-ES", { currency: "COP" }).format(attributes.price) }
               {localStorage.setItem("priceProduct", attributes.price)}
             </span>
           </Card.Text>
