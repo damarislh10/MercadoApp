@@ -13,7 +13,6 @@ const MercadoScreen = () => {
   let pumP = "";
 
   let product = GetProductById(id);
-  console.log(product)
 
   if (product !== undefined) {
     const { attributes } = product;
