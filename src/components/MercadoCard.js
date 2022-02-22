@@ -7,7 +7,7 @@ import "../styles/card.css";
 const MercadoCard = ({ id, attributes }) => {
   const { counter, handleAdd, handleSubstract } = useCounter();
   const [show, setShow] = useState(1);
-  const [infoCar, setInfoCar] = useState({
+  const [infoCar] = useState({
     idS: id,
     atribute: attributes,
   });

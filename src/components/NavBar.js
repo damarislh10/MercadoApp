@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import {Container, Navbar } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "./userContext";
 import "../styles/navBar.css";
@@ -25,6 +25,16 @@ const NavBar = () => {
       totalPrice: totalprice,
     });
   };
+  let prueba = itemCar.price * totalCarrito.items;
+  prueba = prueba.toLocaleString("en-US");
+  let totalItems = totalCarrito.items;
+
+  const Allcar = {
+    items: totalItems,
+    precioTotal: prueba,
+  };
+  let totalcar = JSON.parse(localStorage.getItem("totalCar"));
+  totalcar = totalcar !== null ? totalcar : [];
 
   return (
     <div>
@@ -42,7 +52,8 @@ const NavBar = () => {
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
               <div>
-                <button className="btnCar"
+                <button
+                  className="btnCar"
                   onClick={() => {
                     navigate("/product/car");
                   }}
@@ -54,7 +65,7 @@ const NavBar = () => {
                     alt="img-car"
                   />
                   <label className="text-header text-light fw-bold label-item">
-                    {totalCarrito.items}
+                    {totalcar.items}
                   </label>
                 </button>
               </div>
@@ -67,9 +78,9 @@ const NavBar = () => {
               <label className="text-header text-light fw-bold">
                 <span style={{ fontSize: "15px" }}>$</span>
                 <span style={{ fontSize: "15px" }}>
-                  {(itemCar.price * totalCarrito.items).toLocaleString("en-US")}
+                  {totalcar.precioTotal}
                   {localStorage.setItem("total", JSON.stringify(itemCar))}
-                  {/* {localStorage.setItem("totalprice", JSON.stringify(itemCar.price * totalCarrito.items))} */}
+                  {localStorage.setItem("totalCar", JSON.stringify(Allcar))}
                 </span>
               </label>
             </Navbar.Text>
