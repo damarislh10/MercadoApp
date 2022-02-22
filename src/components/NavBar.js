@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Button, Container, Navbar } from "react-bootstrap";
+import {Container, Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "./userContext";
 import "../styles/navBar.css";
@@ -67,7 +67,7 @@ const NavBar = () => {
               <label className="text-header text-light fw-bold">
                 <span style={{ fontSize: "15px" }}>$</span>
                 <span style={{ fontSize: "15px" }}>
-                  {itemCar.price * totalCarrito.items}
+                  {(itemCar.price * totalCarrito.items).toLocaleString("en-US")}
                   {localStorage.setItem("total", JSON.stringify(itemCar))}
                   {/* {localStorage.setItem("totalprice", JSON.stringify(itemCar.price * totalCarrito.items))} */}
                 </span>

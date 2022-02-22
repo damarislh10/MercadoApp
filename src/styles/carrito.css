@@ -1,9 +1,13 @@
 .btnvaciar {
-  margin-left: 30% !important;
+  margin-left: 32% !important;
 }
 
 .title-car{
     color: #d0006f;
     text-align: center;
     margin-top:5%;
+}
+
+.btnDelete{
+  margin-left:13%;
 }

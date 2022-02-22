@@ -16,46 +16,60 @@ const Carrito = () => {
     location.reload();
   };
 
+  const deleteProduct = (id) => {
+    getCarrito().forEach((element, index) => {
+      if (Number(element.idS) === Number(id)) {
+        console.log("somos iguales", element.idS, id);
+        getCarrito().splice(index, 1); // elimine
+        localStorage.setItem("carrito", JSON.stringify(getCarrito()));
+      }
+      JSON.parse(localStorage.getItem("carrito"));
+    });
+  };
+
   return (
     <div>
       <h2 className="title-car">Mi carrito</h2>
-      {getCarrito().map((pr, index) => (
-        <Container key={index} className="my-5">
+      {getCarrito().map((pr) => (
+        <Container key={pr.idS} className="my-5">
           <Row className="row">
             <Col sm={5} className="col-img">
               <img
                 style={{ border: "none" }}
-                src={pr.image_medium_url}
+                src={pr.atribute.image_medium_url}
                 alt="imgProduct"
                 className="img-thumbnail animate__animated animate__fadeInLeft"
               />
             </Col>
             <Col sm={6}>
               <div className="contain-detail">
-                <h3 className="fw-bold">{pr.name}</h3>
-                <label>{pr.pum}</label>
+                <h3 className="fw-bold">{pr.atribute.name}</h3>
+                <h2>{pr.idS}</h2>
+
+                <label>{pr.atribute.pum}</label>
                 <div>
                   <label className="fw-bold fs-4">
-                    Precio normal: $ {pr.price}
+                    Precio normal: $ {pr.atribute.price.toLocaleString("en-US")}
                   </label>
-                  <Button variant="danger">Eliminar</Button>
+                  <Button
+                    variant="danger"
+                    className="btnDelete"
+                    onClick={() => deleteProduct(pr.idS)}
+                  >
+                    Eliminar
+                  </Button>
                 </div>
               </div>
             </Col>
           </Row>
         </Container>
       ))}
-      <Container className="my-5">
-        <Row className="row py-5">
-          <Col>
-            <div className="contain-detail w-50 m-auto">
-              <Button className="btnvaciar" onClick={vaciarCar}>
-                Eliminar todos los productos
-              </Button>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+
+      <div className="contain-detail w-50 m-auto">
+        <Button className="btnvaciar" onClick={vaciarCar}>
+          Eliminar todos los productos
+        </Button>
+      </div>
     </div>
   );
 };

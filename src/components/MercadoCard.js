@@ -7,6 +7,10 @@ import "../styles/card.css";
 const MercadoCard = ({ id, attributes }) => {
   const { counter, handleAdd, handleSubstract } = useCounter();
   const [show, setShow] = useState(1);
+  const [infoCar, setInfoCar] = useState({
+    idS: id,
+    atribute: attributes,
+  });
 
   const comprar = () => {
     setShow(0);
@@ -24,7 +28,7 @@ const MercadoCard = ({ id, attributes }) => {
           <Card.Text className="text-center">
             <span className="fw-bold">
               <span>$</span>
-              {new Intl.NumberFormat("es-ES", { currency: "COP" }).format(attributes.price) }
+              {attributes.price.toLocaleString("en-US")}
               {localStorage.setItem("priceProduct", attributes.price)}
             </span>
           </Card.Text>
@@ -48,10 +52,10 @@ const MercadoCard = ({ id, attributes }) => {
                   let products = [];
                   const key = JSON.parse(localStorage.getItem("carrito"));
                   if (key !== null && counter === 0) {
-                    key.push(attributes);
+                    key.push(infoCar);
                     localStorage.setItem("carrito", JSON.stringify(key));
                   } else if (counter === 0) {
-                    products.push(attributes);
+                    products.push(infoCar);
                     localStorage.setItem("carrito", JSON.stringify(products));
                   }
                 }}

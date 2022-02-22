@@ -43,7 +43,7 @@ const MercadoScreen = () => {
               <h3 className="fw-bold">{nameP}</h3>
               <label>{pumP}</label>
               <div>
-                <label className="fw-bold fs-4">$ {priceP}</label>
+                <label className="fw-bold fs-4">$ {priceP.toLocaleString("en-US")}</label>
               </div>
             </div>
           </Col>
