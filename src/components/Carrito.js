@@ -47,8 +47,6 @@ const Carrito = () => {
             <Col sm={6}>
               <div className="contain-detail">
                 <h3 className="fw-bold">{pr.atribute.name}</h3>
-                <h2>{pr.idS}</h2>
-
                 <label>{pr.atribute.pum}</label>
                 <div>
                   <label className="fw-bold fs-4">
