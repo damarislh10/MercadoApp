@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <ListComponent/> Debe mostrarse correctamente 1`] = `
+<Container
+  fluid={false}
+>
+  <Row
+    className="row-card"
+    lg={4}
+    style={
+      Object {
+        "boxShadow": "none",
+      }
+    }
+  />
+</Container>
+`;
