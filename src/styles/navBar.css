@@ -1,27 +1,33 @@
-.nav{
-    background-color:#D0006F;
+.nav {
+  background-color: #d0006f;
 }
 
-.text-header{
-    color:#fff;
-    font-size:20px;
+.text-header {
+  color: #fff;
+  font-size: 20px;
 }
-.mg-car{
-    z-index: 1;
+.mg-car {
+  z-index: 1;
 }
-.label-item{
-    border:2px solid #fff;
-    border-radius:100%;
-    text-align: center;
-    padding:0 0.5%;
-    top:12px;
-    font-size: 15px;
-    position: absolute;
-    z-index: 10;
-    background-color: #D0006F;
+.label-item {
+  border: 2px solid #fff;
+  border-radius: 100%;
+  text-align: center;
+  padding: 0 0.5%;
+  top: 12px;
+  font-size: 15px;
+  position: absolute;
+  z-index: 10;
+  background-color: #d0006f;
 }
 
-.btnCar{
-    background-color: #D0006F;
-    border: none;
+.btnCar {
+  background-color: #d0006f;
+  border: none;
+}
+
+@media only screen and (max-width: 540px) {
+  .label-item {
+    padding: 0 1.2%;
+  }
 }

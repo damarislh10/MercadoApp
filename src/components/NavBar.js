@@ -5,7 +5,7 @@ import { UserContext } from "./userContext";
 import "../styles/navBar.css";
 
 const NavBar = () => {
-  const { itemCar, setItemCar } = useContext(UserContext);
+  const { itemCar } = useContext(UserContext);
   const navigate = useNavigate();
 
   const [totalCarrito, setTotalcar] = useState({

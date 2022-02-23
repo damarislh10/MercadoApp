@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { url as endpoint } from "../helpers/url";
 
 const GetProductById = (id) => {

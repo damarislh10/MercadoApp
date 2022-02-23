@@ -48,7 +48,7 @@ const Carrito = () => {
                 <h3 className="fw-bold">{pr.atribute.name}</h3>
                 <label>{pr.atribute.pum}</label>
                 <div>
-                  <label className="fw-bold fs-4">
+                  <label className="fw-bold fs-4 mb-3">
                     Precio normal: $ {pr.atribute.price.toLocaleString("en-US")}
                   </label>
                   <Button
@@ -67,7 +67,7 @@ const Carrito = () => {
 
       <div className="contain-detail w-50 m-auto">
         <Button className="btnvaciar" onClick={vaciarCar}>
-          Eliminar todos los productos
+          Vaciar Carrito
         </Button>
       </div>
     </div>
